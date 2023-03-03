@@ -1,12 +1,12 @@
 import { gameInfo } from "../js/game_info.js"; // import to import the things that you have exported 
 
 // export functions to make code more readable and organiste
-export function generateWorld () {
+export function generatePlayGround () {
 
     let container = document.createElement("div");
 
     for (let row = 0; row < gameInfo.worldSize; row++) {
-        
+
         let row = document.createElement('div');
     
         row.classList.add('row');
@@ -23,5 +23,5 @@ export function generateWorld () {
     }
 
     document.querySelector("main").append(container);
-    
+
 }

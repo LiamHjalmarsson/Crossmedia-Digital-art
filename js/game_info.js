@@ -1,7 +1,7 @@
 export const gameInfo = {
     speed: 0, // the speed of snake 
-    startPoint: [5, 5], // starting point of the snake 
     worldSize: 20, // will create the size of the board 
+    startPoint: [5, 5], // starting point of the snake 
     snake: [], // goll hold the parts of the snake 
     keys: { // the keys to use 
         arrowUp: 38,
