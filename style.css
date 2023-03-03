@@ -8,11 +8,15 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(133, 131, 128);
+    background-color: rgb(140, 177, 80);
+    background-image: url(./pictures/snake-cartoon-character-png.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:2000px;
 }
 
 input {
-    margin: 5px;
+    margin: 3px;
 }
 
 @media (min-width:1100px) {
