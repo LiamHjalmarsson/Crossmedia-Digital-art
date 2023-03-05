@@ -3,16 +3,51 @@
     margin: 0px;
 }
 
+header {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50px;
+}
+
+header > div {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    align-items: center;
+}
+
+.snake {
+    width: 12px;
+    height: 12px;
+    background: #fc6471;
+    transform-origin: right;
+    border-radius: 0px;
+
+    animation: rotateRollingSquare 2s infinite linear;
+}
+
+@keyframes rotateRollingSquare {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 main {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(140, 177, 80);
+    background-color: rgba(140, 177, 80, 0.76);
     background-image: url(./pictures/snake-cartoon-character-png.webp);
     background-repeat: no-repeat;
     background-position: center;
-    background-size:2000px;
+    background-size:100%;
 }
 
 input {

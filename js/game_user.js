@@ -1,5 +1,6 @@
 import { gameInfo } from "../js/game_info.js"; 
 import { getApplePosition, checkItemAt, getItemAt, unCheckItemAt, placeAppleAt, getRandomPosition, removeAppleAt } from "./game_functions.js";
+import { snakeAnimation } from "../components/component_snake.js";
 
 export function user () {
 
@@ -19,42 +20,40 @@ export function user () {
 
     gameInfo.moveInterval = setInterval(() => {
         move(gameInfo.movingDirection || "right");
-    }, 10000 / gameInfo.speed);
+    }, 1000 / gameInfo.speed);
 
 }
 
 function move (direction) {
     let postionAppel = getApplePosition();
 
-    // console.log(gameInfo.snake)
     let snake = gameInfo.snake;
     let snakeHead = [...snake[0]];
-    console.log("1", snakeHead)
-    let snakeTail = snake;
-    console.log(snakeTail)
+    let snakeTail = [...snake[snake.length - 1]];
     
-    let updateSnake = () => {
+    function updateSnake () {
         snake.unshift(snakeHead);
-        console.log("3", snake.unshift(snakeHead))
         snake.pop();
-        console.log("4", snake.pop())
         
         snake.forEach(snakePart => {
-            console.log("5", snakePart)
             checkItemAt(...snakePart)
         });
     }
 
-    switch (direction) {
-        case 'up':    snakeHead[1] = snakeHead[1] === 1 ? gameInfo.worldSize : snakeHead[1] - 1; break;
-        case 'down':  snakeHead[1] = snakeHead[1] === gameInfo.worldSize ? 1 : snakeHead[1] + 1; break;
-        case 'left':  snakeHead[0] = snakeHead[0] === 1 ? gameInfo.worldSize : snakeHead[0] - 1; break;
-        case 'right': snakeHead[0] = snakeHead[0] === gameInfo.worldSize ? 1 : snakeHead[0] + 1; break;
+    if (direction === "up") {
+        snakeHead[1] = snakeHead[1] === 1 ? gameInfo.worldSize : snakeHead[1] - 1;
+    } else if ( direction === "down" ) {
+        snakeHead[1] = snakeHead[1] === gameInfo.worldSize ? 1 : snakeHead[1] + 1;
+    } else if (direction === "left") {
+        snakeHead[0] = snakeHead[0] === 1 ? gameInfo.worldSize : snakeHead[0] - 1;
+    } else {
+        snakeHead[0] = snakeHead[0] === gameInfo.worldSize ? 1 : snakeHead[0] + 1;
     }
 
     if (getItemAt(...snakeHead).type === 'checkbox' && getItemAt(...snakeHead).checked) {
-        document.querySelector('body').innerText = 'Game Over...';
         document.querySelectorAll('input').forEach(input => input.disabled = true);
+
+        document.querySelector("header").innerHTML = "<h1> Game over </h1>"
 
         clearInterval(gameInfo.moveInterval);
     }
@@ -62,11 +61,13 @@ function move (direction) {
     if (snakeHead[0] === postionAppel[0] && snakeHead[1] === postionAppel[1]) {
         snake.push(snakeTail);
 
+        gameInfo.points += 1;
+
+        snakeAnimation(gameInfo.points)
+
         placeAppleAt(...getRandomPosition());
         removeAppleAt(...postionAppel);
         
-        increaseScore();
-
         updateSnake();
     } else {
         updateSnake();
