@@ -43,11 +43,11 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(140, 177, 80, 0.76);
-    background-image: url(./pictures/snake-cartoon-character-png.webp);
+    background-color: rgba(0,0,0);
+    background-image: url(./pictures/Untitled_Artwork.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size:100%;
+    background-size:contain;
 }
 
 input {
