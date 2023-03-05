@@ -3,9 +3,9 @@ import { getApplePosition, checkItemAt, getItemAt, unCheckItemAt, placeAppleAt, 
 import { snakeAnimation } from "../components/component_snake.js";
 
 export function user () {
-
+    let shouldMove = false;
     document.addEventListener("keydown", (e) => {
-
+         shouldMove = true;
         if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") {
             gameInfo.movingDirection = gameInfo.movingDirection === 'right' ? 'right' : 'left';
         } else if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") {
@@ -19,13 +19,17 @@ export function user () {
     });
 
     gameInfo.moveInterval = setInterval(() => {
+        if (!shouldMove)
+        {
+            return
+        }
         move(gameInfo.movingDirection || "right");
     }, 1000 / gameInfo.speed);
 
 }
 
 function move (direction) {
-    let postionAppel = getApplePosition();
+    let positionApple = getApplePosition();
 
     let snake = gameInfo.snake;
     let snakeHead = [...snake[0]];
@@ -58,7 +62,7 @@ function move (direction) {
         clearInterval(gameInfo.moveInterval);
     }
 
-    if (snakeHead[0] === postionAppel[0] && snakeHead[1] === postionAppel[1]) {
+    if (snakeHead[0] === positionApple[0] && snakeHead[1] === positionApple[1]) {
         snake.push(snakeTail);
 
         gameInfo.points += 1;
@@ -66,7 +70,7 @@ function move (direction) {
         snakeAnimation(gameInfo.points)
 
         placeAppleAt(...getRandomPosition());
-        removeAppleAt(...postionAppel);
+        removeAppleAt(...positionApple);
         
         updateSnake();
     } else {
