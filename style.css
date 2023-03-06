@@ -1,6 +1,7 @@
 *{
     padding: 0px;
     margin: 0px;
+    overflow-y: hidden;
 }
 
 header {
@@ -44,10 +45,11 @@ main {
     justify-content: center;
     align-items: center;
     background-color: rgba(0,0,0);
-    background-image: url(./pictures/Untitled_Artwork.png);
+    background-image: url(./pictures/Untitled_Artwork.gif);
     background-repeat: no-repeat;
     background-position: center;
     background-size:contain;
+    padding-right: 100px;
 }
 
 input {
