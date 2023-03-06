@@ -31,7 +31,6 @@ section {
 }
 
 
-
 .snake {
     width: 12px;
     height: 12px;
@@ -58,13 +57,13 @@ section {
 }
 
 main {
-@ -19,7 +73,63 @@ input {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 3px;
 }
 
-<<<<<<< Updated upstream
-@media (min-width:1100px) {
-=======
 input[type="radio"] {
     /* Add if not using autoprefixer */
     -webkit-appearance: none;
@@ -80,10 +79,10 @@ input[type="radio"] {
     height: 1em;
     border: 0.15em solid currentColor;
     border-radius: 50%;
-  }
+}
 
-  input[type="checkbox"]
-  {
+input[type="checkbox"]
+{
     -webkit-appearance: none;
     appearance: none;
     background-color: #fff;
@@ -95,9 +94,9 @@ input[type="radio"] {
     height: 1em;
     border: 0.15em solid currentColor;
     border-radius: 50%;
-  }
+}
 
-  input[type="checkbox"]:checked {
+input[type="checkbox"]:checked {
     /* Add if not using autoprefixer */
     -webkit-appearance: none;
     appearance: none;
@@ -112,13 +111,8 @@ input[type="radio"] {
     height: 1em;
     border: 0.15em solid currentColor;
     border-radius: 50%;
-  }
+}
 
-  input[type="checkbox"]:checked:first-child {
+input[type="checkbox"]:checked:first-child {
     box-shadow: inset 1em 1em rgb(215, 223, 215);
-  }
-/* @media (min-width:1100px) {
-
-    input {
-        height: 20px;
-        width: 20px;
+}
