@@ -1,51 +1,8 @@
 import { generatePlayGround } from '../components/component_checkboxs.js';
 import { gameInfo } from './game_info.js';
+import { user } from './game_user.js';
+
 generatePlayGround()
-
-const easyBtn = document.getElementById('easy-btn');
-easyBtn.addEventListener('click', () => {
-  setDifficulty('easy');
-});
-
-const mediumBtn = document.getElementById('medium-btn');
-mediumBtn.addEventListener('click', () => {
-  setDifficulty('medium');
-});
-
-const hardBtn = document.getElementById('hard-btn');
-hardBtn.addEventListener('click', () => {
-  setDifficulty('hard');
-});
-
-
-
-
-  
-  export function setDifficulty(difficulty) {
-    switch (difficulty) {
-      case "easy":
-        gameInfo.speed = 3;
-        gameInfo.worldSize = 10;
-        break;
-      case "medium":
-        gameInfo.speed = 6;
-        gameInfo.worldSize = 20;
-        break;
-      case "hard":
-        gameInfo.speed = 9;
-        gameInfo.worldSize = 30;
-        break;
-    }
-  
-    // clear the current game board
-    const mainElement = document.querySelector('main');
-    while (mainElement.firstChild) {
-        mainElement.removeChild(mainElement.firstChild);
-    }
-  
-    // regenerate the game board with the new size
-    generatePlayGround();
-  }
 
 let rows = document.querySelectorAll('.row');
 
@@ -100,5 +57,26 @@ export function getRandomPosition () {
     const index = Math.floor(Math.random() * (freePositions.length) - 1) + 1;
 
     return freePositions[index];
+}
+
+export function setDifficulty(difficulty) {
+
+    switch (difficulty) {
+        case "easy":
+            gameInfo.speed = 6
+        break;
+            
+        case "medium": 
+            gameInfo.speed = 10
+        break;
+
+        case "hard": 
+            gameInfo.speed = 15
+        break;
+    }
+
+    clearInterval(gameInfo.moveInterval);
+
+    user();
 }
 

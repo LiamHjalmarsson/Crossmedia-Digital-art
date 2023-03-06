@@ -60,7 +60,6 @@ function move (direction) {
 
     if (snakeHead[0] === postionAppel[0] && snakeHead[1] === postionAppel[1]) {
         snake.push(snakeTail);
-
         gameInfo.points += 1;
 
         snakeAnimation(gameInfo.points)
