@@ -72,7 +72,6 @@ function move (direction) {
 
     if (snakeHead[0] === positionApple[0] && snakeHead[1] === positionApple[1]) {
         snake.push(snakeTail);
-
         gameInfo.points += 1;
         snakeAnimation(gameInfo.points)
 

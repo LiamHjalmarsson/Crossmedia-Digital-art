@@ -13,4 +13,5 @@ export function snakeAnimation (points) {
 
     //     document.body.append(div)   
     // }
+
 }

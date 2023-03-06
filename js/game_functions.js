@@ -66,41 +66,21 @@ export function setDifficulty(difficulty) {
 
     switch (difficulty) {
         case "easy":
-            gameInfo.speed = 3;
-            gameInfo.worldSize = 10;
-            gameInfo.snake = [[5, 5]];
-            gameInfo.movingDirection = "";
-            break;
-        case "medium":
-            gameInfo.speed = 6;
-            gameInfo.worldSize = 20;
-            gameInfo.snake = [[10, 10]];
-            gameInfo.movingDirection = "";
-            break;
-        case "hard":
-            gameInfo.speed = 9;
-            gameInfo.worldSize = 30;
-            gameInfo.snake = [[15, 15]];
-            gameInfo.movingDirection = "";
-            break;
+            game_difficulty
+            gameInfo.speed = 6
+        break;
+            
+        case "medium": 
+            gameInfo.speed = 10
+        break;
+
+        case "hard": 
+            gameInfo.speed = 15
+        break;
     }
 
-    // clear the current game board
-    const mainElement = document.querySelector('main');
-
-    while (mainElement.firstChild) {
-        mainElement.removeChild(mainElement.firstChild);
-        clearInterval(gameInfo.moveInterval);
-    }
-    
-
-    // regenerate the game board with the new size
-    generatePlayGround();
-
-    checkItemAt(...gameInfo.startPoint);
+    clearInterval(gameInfo.moveInterval);
 
     user();
-
-
-
 }
+
