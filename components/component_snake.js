@@ -1,22 +1,16 @@
 
-export function snakeAnimation (game_info) {
+export function snakeAnimation (points) {
 
-    let header = document.querySelector("header");
-    let container = document.createElement("div");
-
-    for ( let i = 0; i < game_info; i++) {
-
-        if (i < 10) {
-            let div = document.createElement("div");
-            div.classList.add(`snake${i}`, "snake");
-            
-            container.append(div)   
-        }
-            if (i > 10) {
-                
-        }
-
-    }
+    let header = document.querySelector("section");
+    let div = document.createElement("div");
     
-    header.append(container)
+    if (points % 5 === 1) {
+        div.classList.add(`snake`);
+        header.append(div)   
+    } 
+    // else if (points >= 1) {
+    //     div.classList.add(`line`);
+
+    //     document.body.append(div)   
+    // }
 }

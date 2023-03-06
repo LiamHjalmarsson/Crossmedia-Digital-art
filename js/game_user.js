@@ -4,8 +4,10 @@ import { snakeAnimation } from "../components/component_snake.js";
 
 export function user () {
     let shouldMove = false;
+    
     document.addEventListener("keydown", (e) => {
-         shouldMove = true;
+        shouldMove = true;
+
         if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") {
             gameInfo.movingDirection = gameInfo.movingDirection === 'right' ? 'right' : 'left';
         } else if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") {
@@ -15,33 +17,37 @@ export function user () {
         } else if (e.key === "ArrowDown" || e.key === "s" || e.key === "S") {
             gameInfo.movingDirection = gameInfo.movingDirection === 'up' ? 'up' : 'down';
         }
-
     });
 
+
     gameInfo.moveInterval = setInterval(() => {
-        if (!shouldMove)
+
+        if (shouldMove)
         {
-            return
+            move(gameInfo.movingDirection || "right");
         }
-        move(gameInfo.movingDirection || "right");
+
     }, 1000 / gameInfo.speed);
 
 }
 
 function move (direction) {
+    
     let positionApple = getApplePosition();
-
+    
     let snake = gameInfo.snake;
     let snakeHead = [...snake[0]];
     let snakeTail = [...snake[snake.length - 1]];
-    
+
     function updateSnake () {
+
         snake.unshift(snakeHead);
         snake.pop();
         
         snake.forEach(snakePart => {
             checkItemAt(...snakePart)
         });
+
     }
 
     if (direction === "up") {
@@ -55,27 +61,31 @@ function move (direction) {
     }
 
     if (getItemAt(...snakeHead).type === 'checkbox' && getItemAt(...snakeHead).checked) {
+
         document.querySelectorAll('input').forEach(input => input.disabled = true);
 
         document.querySelector("header").innerHTML = "<h1> Game over </h1>"
 
         clearInterval(gameInfo.moveInterval);
+
     }
 
     if (snakeHead[0] === positionApple[0] && snakeHead[1] === positionApple[1]) {
         snake.push(snakeTail);
 
         gameInfo.points += 1;
-
         snakeAnimation(gameInfo.points)
 
         placeAppleAt(...getRandomPosition());
         removeAppleAt(...positionApple);
         
         updateSnake();
+
     } else {
+
         updateSnake();
         unCheckItemAt(...snakeTail);
+    
     }
 }
 

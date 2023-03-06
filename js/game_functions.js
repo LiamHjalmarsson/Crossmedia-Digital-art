@@ -1,51 +1,8 @@
 import { generatePlayGround } from '../components/component_checkboxs.js';
 import { gameInfo } from './game_info.js';
+import { user } from './game_user.js';
+
 generatePlayGround()
-
-const easyBtn = document.getElementById('easy-btn');
-easyBtn.addEventListener('click', () => {
-  setDifficulty('easy');
-});
-
-const mediumBtn = document.getElementById('medium-btn');
-mediumBtn.addEventListener('click', () => {
-  setDifficulty('medium');
-});
-
-const hardBtn = document.getElementById('hard-btn');
-hardBtn.addEventListener('click', () => {
-  setDifficulty('hard');
-});
-
-
-
-
-  
-  export function setDifficulty(difficulty) {
-    switch (difficulty) {
-      case "easy":
-        gameInfo.speed = 3;
-        gameInfo.worldSize = 10;
-        break;
-      case "medium":
-        gameInfo.speed = 6;
-        gameInfo.worldSize = 20;
-        break;
-      case "hard":
-        gameInfo.speed = 9;
-        gameInfo.worldSize = 30;
-        break;
-    }
-  
-    // clear the current game board
-    const mainElement = document.querySelector('main');
-    while (mainElement.firstChild) {
-        mainElement.removeChild(mainElement.firstChild);
-    }
-  
-    // regenerate the game board with the new size
-    generatePlayGround();
-  }
 
 let rows = document.querySelectorAll('.row');
 
@@ -54,14 +11,17 @@ export function getItemAt (x, y) {
 };
 
 export function checkItemAt (x, y) {
+    console.log(x, y, "checkItemAt")
     return getItemAt(x, y).checked = true;
 } 
 
 export function unCheckItemAt (x, y) {
+    console.log(x, y, "unCheckItemAt")
     return getItemAt(x, y).checked = false;
 } 
 
 export function placeAppleAt (x, y) {
+    console.log(x, y, "placeAppleAt")
     getItemAt(x, y).type = "radio";
     checkItemAt(x, y);
 }
@@ -102,3 +62,45 @@ export function getRandomPosition () {
     return freePositions[index];
 }
 
+export function setDifficulty(difficulty) {
+
+    switch (difficulty) {
+        case "easy":
+            gameInfo.speed = 3;
+            gameInfo.worldSize = 10;
+            gameInfo.snake = [[5, 5]];
+            gameInfo.movingDirection = "";
+            break;
+        case "medium":
+            gameInfo.speed = 6;
+            gameInfo.worldSize = 20;
+            gameInfo.snake = [[10, 10]];
+            gameInfo.movingDirection = "";
+            break;
+        case "hard":
+            gameInfo.speed = 9;
+            gameInfo.worldSize = 30;
+            gameInfo.snake = [[15, 15]];
+            gameInfo.movingDirection = "";
+            break;
+    }
+
+    // clear the current game board
+    const mainElement = document.querySelector('main');
+
+    while (mainElement.firstChild) {
+        mainElement.removeChild(mainElement.firstChild);
+        clearInterval(gameInfo.moveInterval);
+    }
+    
+
+    // regenerate the game board with the new size
+    generatePlayGround();
+
+    checkItemAt(...gameInfo.startPoint);
+
+    user();
+
+
+
+}

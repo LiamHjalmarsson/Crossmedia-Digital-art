@@ -9,7 +9,7 @@ export const gameInfo = {
         arrowLeft: 37,
         arrowRight: 39
     },
-    movingDirection: 0,
+    movingDirection: "",
     moveInterval: 0,
     points: 0
 }
