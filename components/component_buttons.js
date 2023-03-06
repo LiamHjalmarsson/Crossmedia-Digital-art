@@ -15,4 +15,9 @@ export function levelButtons () {
     hardBtn.addEventListener('click', () => {
         setDifficulty('hard');
     });
+
+    const worldCover = document.getElementById('worldCover');
+    hardBtn.addEventListener('click', () => {
+        setDifficulty('worldCover');
+    });
 }
