@@ -11,14 +11,17 @@ export function getItemAt (x, y) {
 };
 
 export function checkItemAt (x, y) {
+    console.log(x, y, "checkItemAt")
     return getItemAt(x, y).checked = true;
 } 
 
 export function unCheckItemAt (x, y) {
+    console.log(x, y, "unCheckItemAt")
     return getItemAt(x, y).checked = false;
 } 
 
 export function placeAppleAt (x, y) {
+    console.log(x, y, "placeAppleAt")
     getItemAt(x, y).type = "radio";
     checkItemAt(x, y);
 }
@@ -63,6 +66,7 @@ export function setDifficulty(difficulty) {
 
     switch (difficulty) {
         case "easy":
+            game_difficulty
             gameInfo.speed = 6
         break;
             
