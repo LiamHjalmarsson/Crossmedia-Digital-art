@@ -1,6 +1,8 @@
+
 *{
     padding: 0px;
     margin: 0px;
+
     overflow-y: hidden;
 }
 
@@ -28,6 +30,8 @@ section {
     gap: 25px;
 }
 
+
+
 .snake {
     width: 12px;
     height: 12px;
@@ -50,28 +54,71 @@ section {
         border-radius: 0;
         transform: rotate(360deg);
     }
+
 }
 
 main {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0);
-    background-image: url(./pictures/Untitled_Artwork.gif);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;
-    padding-right: 100px;
-}
-
-input {
+@ -19,7 +73,63 @@ input {
     margin: 3px;
 }
 
+<<<<<<< Updated upstream
+@media (min-width:1100px) {
+=======
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    box-shadow: inset 1em 1em red;
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+  }
+
+  input[type="checkbox"]
+  {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    box-shadow: inset 1em 1em rgb(88, 98, 83);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+  }
+
+  input[type="checkbox"]:checked {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    box-shadow: inset 1em 1em rgb(21, 255, 0);
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+  }
+
+  input[type="checkbox"]:checked:first-child {
+    box-shadow: inset 1em 1em rgb(215, 223, 215);
+  }
 /* @media (min-width:1100px) {
+
     input {
         height: 20px;
         width: 20px;
-    }
-} */
