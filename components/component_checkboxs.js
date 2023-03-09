@@ -1,4 +1,4 @@
-import { removeAppleAt, getApplePosition, placeAppleAt, getRandomPosition } from "../js/game_functions.js";
+import { removeAppleAt, getApplePosition } from "../js/game_functions.js";
 
 export function generatePlayGround (gameInfo) {
 
@@ -39,7 +39,7 @@ export function worldFullScreen (gameInfo) {
     document.querySelector("main").innerHTML = "";
     document.querySelector("header").innerHTML = "";
     generatePlayGround(gameInfo);
-    document.querySelector("main > div").style.width = "100vw";
+    document.querySelector("main > div").classList.add("fullScreenDiv"); 
     document.querySelectorAll("div > .row").forEach(div => div.classList.add("fullScreen"));
 }
 

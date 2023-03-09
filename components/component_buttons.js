@@ -1,9 +1,10 @@
 import { setDifficulty } from "../js/game_functions.js";
+import { gameInfo } from "../js/game_info.js";
 
 export function levelButtons () {
-    button("easy");
     button("medium");
     button("hard");
+    button("brutal");
     button("worldCover");
 }
 
@@ -12,6 +13,7 @@ function button (difficulty) {
     
     button.textContent = difficulty;
     button.addEventListener("click", () => {
+        gameInfo.level = difficulty;
         setDifficulty(difficulty);
     });
 

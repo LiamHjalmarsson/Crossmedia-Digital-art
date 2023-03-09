@@ -65,30 +65,31 @@ export function setDifficulty(difficulty) {
     let postion = randomMath();
 
     switch (difficulty) {
-        case "easy":
-            gameInfo.speed = 10
-            gameInfo.snake = [[postion, postion]]
-            gameInfo.startPoint = [postion, postion]
-            startOfNewGame(gameInfo)
-            break;
-            
-            case "medium": 
+        case "medium":
             gameInfo.speed = 15
             gameInfo.snake = [[postion, postion]]
             gameInfo.startPoint = [postion, postion]
             startOfNewGame(gameInfo)
-            break;
+        break;
             
-            case "hard": 
+        case "hard": 
             gameInfo.speed = 20
             gameInfo.snake = [[postion, postion]]
             gameInfo.startPoint = [postion, postion]
             startOfNewGame(gameInfo)
+        break;
             
-            break;
+        case "brutal": 
+            gameInfo.speed = 30
+            gameInfo.snake = [[postion, postion]]
+            gameInfo.startPoint = [postion, postion]
+            startOfNewGame(gameInfo)
             
-            case "worldCover": 
-            gameInfo.worldSize = 48;
+        break;
+            
+        case "worldCover": 
+            gameInfo.worldSize = 30;
+            gameInfo.speed = 20
             gameInfo.snake = [[postion, postion]]
             gameInfo.startPoint = [postion, postion]
             worldFullScreen(gameInfo);

@@ -6,6 +6,13 @@ export const gameInfo = {
     movingDirection: "",
     moveInterval: 0,
     points: 0,
-    startMove: false
+    startMove: false,
+    level: "",
+    key: {
+        arrowUp: 38,
+        arrowDown: 40,
+        arrowLeft: 37,
+        arrowRight: 39
+    },
+    multiPlayer: false,
 }
-
