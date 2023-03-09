@@ -1,5 +1,6 @@
 import { gameInfo } from "../js/game_info.js"; 
 import { getApplePosition, checkItemAt, getItemAt, unCheckItemAt, placeAppleAt, getRandomPosition, removeAppleAt } from "./game_functions.js";
+import { animationPoints } from "./game_animation_points.js";
 
 export function user () {
     
@@ -16,7 +17,6 @@ export function user () {
             gameInfo.movingDirection = gameInfo.movingDirection === 'up' ? 'up' : 'down';
         }
     });
-
 
     gameInfo.moveInterval = setInterval(() => {
 
@@ -70,6 +70,10 @@ function move (direction) {
     if (snakeHead[0] === positionApple[0] && snakeHead[1] === positionApple[1]) {
         snake.push(snakeTail);
         gameInfo.points += 1;
+
+        if (gameInfo.level === "brutal") {
+            animationPoints(gameInfo)
+        } 
 
         placeAppleAt(...getRandomPosition());
         removeAppleAt(...positionApple);
