@@ -1,7 +1,6 @@
-import { generatePlayGround } from '../components/component_checkboxs.js';
+import { startOfNewGame, worldFullScreen } from '../components/component_checkboxs.js';
 import { gameInfo } from './game_info.js';
 import { user } from './game_user.js';
-
 
 export function getItemAt (x, y) {
     let rows = document.querySelectorAll('.row');
@@ -63,51 +62,47 @@ export function getRandomPosition () {
 
 export function setDifficulty(difficulty) {
 
+    let postion = randomMath();
+
+    console.log(postion)
     switch (difficulty) {
         case "easy":
-            gameInfo.speed = 6
-            gameInfo.snake = [[5, 5]]
-            startOfNewGame()
+            gameInfo.speed = 10
+            gameInfo.snake = [[postion, postion]]
+            gameInfo.startPoint = [postion, postion]
+            startOfNewGame(gameInfo)
             break;
             
             case "medium": 
-            gameInfo.speed = 10
-            gameInfo.snake = [[5, 5]]
-            startOfNewGame()
+            gameInfo.speed = 15
+            gameInfo.snake = [[postion, postion]]
+            gameInfo.startPoint = [postion, postion]
+            startOfNewGame(gameInfo)
             break;
             
             case "hard": 
             gameInfo.speed = 20
-            gameInfo.snake = [[5, 5]]
-            startOfNewGame()
+            gameInfo.snake = [[postion, postion]]
+            gameInfo.startPoint = [postion, postion]
+            startOfNewGame(gameInfo)
             
             break;
             
             case "worldCover": 
             gameInfo.worldSize = 48;
-            gameInfo.snake = [[5, 5]]
-            worldFullScreen();
+            gameInfo.snake = [[postion, postion]]
+            gameInfo.startPoint = [postion, postion]
+            worldFullScreen(gameInfo);
         break;
     }
 
     clearInterval(gameInfo.moveInterval);
-
+    randomMath()
     user();
     checkItemAt(...gameInfo.startPoint);
     placeAppleAt(...getRandomPosition());
 }
 
-function startOfNewGame () {
-    document.querySelector("main").innerHTML = "";
-    generatePlayGround(gameInfo)
+function randomMath () {
+    return Math.round(Math.random() * 20);
 }
-
-
-function worldFullScreen () {
-    document.querySelector("main").innerHTML = "";
-    document.querySelector("header").innerHTML = "";
-    generatePlayGround(gameInfo);
-    document.querySelector("main > div").style.width = "100vw";
-    document.querySelectorAll("div > .row").forEach(div => div.classList.add("fullScreen"));
-}
-

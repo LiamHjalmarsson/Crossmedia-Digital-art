@@ -26,3 +26,17 @@ export function generatePlayGround (gameInfo) {
     document.querySelector("main").append(container);
 
 }
+
+export function startOfNewGame (gameInfo) {
+    document.querySelector("main").innerHTML = "";
+    generatePlayGround(gameInfo)
+}
+
+export function worldFullScreen (gameInfo) {
+    document.querySelector("main").innerHTML = "";
+    document.querySelector("header").innerHTML = "";
+    generatePlayGround(gameInfo);
+    document.querySelector("main > div").style.width = "100vw";
+    document.querySelectorAll("div > .row").forEach(div => div.classList.add("fullScreen"));
+}
+
