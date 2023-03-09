@@ -1,6 +1,5 @@
 import { gameInfo } from "../js/game_info.js"; 
 import { getApplePosition, checkItemAt, getItemAt, unCheckItemAt, placeAppleAt, getRandomPosition, removeAppleAt } from "./game_functions.js";
-import { snakeAnimation } from "../components/component_snake.js";
 
 export function user () {
     let shouldMove = false;
@@ -38,7 +37,6 @@ function move (direction) {
     let snake = gameInfo.snake;
     let snakeHead = [...snake[0]];
     let snakeTail = [...snake[snake.length - 1]];
-
     function updateSnake () {
 
         snake.unshift(snakeHead);
@@ -73,7 +71,6 @@ function move (direction) {
     if (snakeHead[0] === positionApple[0] && snakeHead[1] === positionApple[1]) {
         snake.push(snakeTail);
         gameInfo.points += 1;
-        snakeAnimation(gameInfo.points)
 
         placeAppleAt(...getRandomPosition());
         removeAppleAt(...positionApple);

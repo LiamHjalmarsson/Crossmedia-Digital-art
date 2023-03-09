@@ -20,8 +20,13 @@ header {
     flex-direction: row;
     gap: 10px;
     top: 15%;
+    width: 500px;
     align-items: center;
     justify-content: space-around;
+}
+
+button {
+    padding: 10px;
 }
 
 section {
@@ -29,7 +34,6 @@ section {
     justify-content: center;
     gap: 25px;
 }
-
 
 .snake {
     width: 12px;
@@ -115,4 +119,10 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"]:checked:first-child {
     box-shadow: inset 1em 1em rgb(215, 223, 215);
+}
+
+
+.fullScreen {
+    display: flex;
+    justify-content: space-around;
 }

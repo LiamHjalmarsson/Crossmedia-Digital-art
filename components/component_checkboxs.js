@@ -1,7 +1,4 @@
-import { gameInfo } from "../js/game_info.js"; // import to import the things that you have exported 
-
-// export functions to make code more readable and organiste
-export function generatePlayGround () {
+export function generatePlayGround (gameInfo) {
 
     let container = document.createElement("div");
 
@@ -15,6 +12,10 @@ export function generatePlayGround () {
             let input = document.createElement('input');
     
             input.type = 'checkbox';
+
+            input.addEventListener("click", () => {
+
+            })
     
             row.appendChild(input);
         }
