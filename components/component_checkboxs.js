@@ -1,3 +1,5 @@
+import { removeAppleAt, getApplePosition, placeAppleAt, getRandomPosition } from "../js/game_functions.js";
+
 export function generatePlayGround (gameInfo) {
 
     let container = document.createElement("div");
@@ -14,7 +16,8 @@ export function generatePlayGround (gameInfo) {
             input.type = 'checkbox';
 
             input.addEventListener("click", () => {
-
+                removeAppleAt(...getApplePosition());
+                input.type = "radio";
             })
     
             row.appendChild(input);
