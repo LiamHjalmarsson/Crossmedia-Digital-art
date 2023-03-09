@@ -64,7 +64,6 @@ export function setDifficulty(difficulty) {
 
     let postion = randomMath();
 
-    console.log(postion)
     switch (difficulty) {
         case "easy":
             gameInfo.speed = 10

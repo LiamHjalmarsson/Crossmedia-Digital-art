@@ -5,6 +5,7 @@ export const gameInfo = {
     snake: [[5, 5]], // goll hold the parts of the snake 
     movingDirection: "",
     moveInterval: 0,
-    points: 0
+    points: 0,
+    startMove: false
 }
 

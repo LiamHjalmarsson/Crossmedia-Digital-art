@@ -2,10 +2,9 @@ import { gameInfo } from "../js/game_info.js";
 import { getApplePosition, checkItemAt, getItemAt, unCheckItemAt, placeAppleAt, getRandomPosition, removeAppleAt } from "./game_functions.js";
 
 export function user () {
-    let shouldMove = false;
     
     document.addEventListener("keydown", (e) => {
-        shouldMove = true;
+        gameInfo.startMove = true;
 
         if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") {
             gameInfo.movingDirection = gameInfo.movingDirection === 'right' ? 'right' : 'left';
@@ -21,7 +20,7 @@ export function user () {
 
     gameInfo.moveInterval = setInterval(() => {
 
-        if (shouldMove)
+        if (gameInfo.startMove)
         {
             move(gameInfo.movingDirection || "right");
         }
@@ -58,7 +57,7 @@ function move (direction) {
         snakeHead[0] = snakeHead[0] === gameInfo.worldSize ? 1 : snakeHead[0] + 1;
     }
 
-    if (getItemAt(...snakeHead).type === 'checkbox' && getItemAt(...snakeHead).checked) {
+    if ( getItemAt(...snakeHead).type === 'checkbox' && getItemAt(...snakeHead).checked ) {
 
         document.querySelectorAll('input').forEach(input => input.disabled = true);
 
