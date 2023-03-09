@@ -1,23 +1,19 @@
 import { setDifficulty } from "../js/game_functions.js";
 
 export function levelButtons () {
-    const easyBtn = document.getElementById('easy-btn');
-    easyBtn.addEventListener('click', () => {
-        setDifficulty('easy');
-    });
+    button("easy");
+    button("medium");
+    button("hard");
+    button("worldCover");
+}
+
+function button (difficulty) {
+    let button = document.createElement("button");
     
-    const mediumBtn = document.getElementById('medium-btn');
-    mediumBtn.addEventListener('click', () => {
-        setDifficulty('medium');
-    });
-    
-    const hardBtn = document.getElementById('hard-btn');
-    hardBtn.addEventListener('click', () => {
-        setDifficulty('hard');
+    button.textContent = difficulty;
+    button.addEventListener("click", () => {
+        setDifficulty(difficulty);
     });
 
-    const worldCover = document.getElementById('worldCover');
-    hardBtn.addEventListener('click', () => {
-        setDifficulty('worldCover');
-    });
+    document.querySelector("header").append(button);
 }

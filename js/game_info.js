@@ -3,7 +3,7 @@ export const gameInfo = {
     worldSize: 20, // will create the size of the board 
     startPoint: [5, 5], // starting point of the snake 
     snake: [[5, 5]], // goll hold the parts of the snake 
-    keys: { // the keys to use 
+    keys: { 
         arrowUp: 38,
         arrowDown: 40,
         arrowLeft: 37,
