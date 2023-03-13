@@ -36,6 +36,7 @@ function move (direction) {
     let snake = gameInfo.snake;
     let snakeHead = [...snake[0]];
     let snakeTail = [...snake[snake.length - 1]];
+    
     function updateSnake () {
 
         snake.unshift(snakeHead);

@@ -19,14 +19,14 @@ header {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    top: 15%;
+    top: 10%;
     width: 500px;
     align-items: center;
     justify-content: space-around;
 }
 
 button {
-    padding: 10px;
+    padding: 5px;
 }
 
 .roll {
@@ -49,6 +49,11 @@ main {
     justify-content: center;
     align-items: center;
     margin: 3px;
+    background-color: rgba(0,0,0);
+    background-image: url(./pictures/Untitled_Artwork.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
 }
 
 input[type="radio"] {
