@@ -1,5 +1,5 @@
-import { setDifficulty } from "../js/game_functions.js";
-import { gameInfo } from "../js/game_info.js";
+import { setDifficulty } from "../js/game.js";
+import { gameInfo } from "../js/info.js";
 
 export function levelButtons () {
     button("medium");

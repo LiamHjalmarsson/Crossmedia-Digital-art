@@ -1,5 +1,5 @@
-import { gameInfo } from "../js/game_info.js"; 
-import { getApplePosition, checkItemAt, getItemAt, unCheckItemAt, placeAppleAt, getRandomPosition, removeAppleAt } from "./game_functions.js";
+import { gameInfo } from "./info.js"; 
+import { getApplePosition, checkItemAt, getItemAt, unCheckItemAt, placeAppleAt, getRandomPosition, removeAppleAt } from "./game.js";
 import { animationPoints } from "./game_animation_points.js";
 
 export function user () {

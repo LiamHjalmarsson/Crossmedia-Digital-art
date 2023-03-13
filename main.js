@@ -1,7 +1,7 @@
-import { user } from "./js/game_user.js";
+import { user } from "./js/user.js";
 import { generatePlayGround } from "./components/component_checkboxs.js";
-import { gameInfo } from "./js/game_info.js"; 
-import { checkItemAt, placeAppleAt, getRandomPosition } from "./js/game_functions.js"
+import { gameInfo } from "./js/info.js"; 
+import { checkItemAt, placeAppleAt, getRandomPosition } from "./js/game.js"
 import { levelButtons } from "./components/component_buttons.js";
 
 function start () {

@@ -1,6 +1,6 @@
 import { startOfNewGame, worldFullScreen } from '../components/component_checkboxs.js';
-import { gameInfo } from './game_info.js';
-import { user } from './game_user.js';
+import { gameInfo } from './info.js';
+import { user } from './user.js';
 
 export function getItemAt (x, y) {
     let rows = document.querySelectorAll('.row');

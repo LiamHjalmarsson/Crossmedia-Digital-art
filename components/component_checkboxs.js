@@ -1,4 +1,4 @@
-import { removeAppleAt, getApplePosition } from "../js/game_functions.js";
+import { removeAppleAt, getApplePosition } from "../js/game.js";
 
 export function generatePlayGround (gameInfo) {
 
