@@ -57,13 +57,10 @@ main {
 }
 
 input[type="radio"] {
-    /* Add if not using autoprefixer */
     -webkit-appearance: none;
     appearance: none;
-    /* For iOS < 15 to remove gradient background */
     background-color: #fff;
     box-shadow: inset 1em 1em red;
-    /* Not removed via appearance */
     margin: 0;
     font: inherit;
     color: currentColor;
@@ -89,13 +86,10 @@ input[type="checkbox"]
 }
 
 input[type="checkbox"]:checked {
-    /* Add if not using autoprefixer */
     -webkit-appearance: none;
     appearance: none;
-    /* For iOS < 15 to remove gradient background */
     background-color: #fff;
     box-shadow: inset 1em 1em rgb(21, 255, 0);
-    /* Not removed via appearance */
     margin: 0;
     font: inherit;
     color: currentColor;
